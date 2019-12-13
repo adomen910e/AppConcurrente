@@ -1,0 +1,19 @@
+Un adaptateur est une nouvelle interface qui adapte deux interfaces : celle d'une $Target$ et celle d'une $Adaptee$. Cela permet par exemple d'associer les méthodes de chacune d'entre elles en adaptant les comportements à l'interface souhaitée.
+
+\bigbreak
+
+Le problème c'est que pour chaque interface $Adaptee$ il faudrait un nouvel adaptateur qui permettrait de faire le lien avec la $Target$. Car l'$Adaptee$  n'a pas forcément les mêmes noms de méthodes alors que les comportements sont similaires.
+
+% Le problème c'est que pour chaque interface $Adaptee$ il faudrait un nouvel adaptateur pour l'adapté à $Target$ car chaque $Adaptee$ n'a pas forcément les mêmes noms de méthodes alors que les comportements sont similaires. 
+\bigbreak
+
+Pour garder OCP, on ne peut modifier ni la $Target$ ni les $Adaptee$ il nous faut donc avoir un pluggable adaptateur qui pourrait s'adapter à toutes les $Adaptee$. Cette nouvelle interface sera ainsi réutilisable car beaucoup plus généraliste.
+
+\bigbreak
+Pour créer un pluggable adapatateur il existe plusieurs méthodes :
+ - La première est de créer des méthodes abstraites dans l'adaptateur qui seront implémentées dans chaque $Adaptee$. Mais cela est contraire à OCP.
+ 
+ - La deuxième consiste à utiliser des objets délégués.
+ 
+ - La dernière est d'utiliser un adaptateur paramétré. Chaque méthode de l'adaptateur prend donc en paramètre l'interface $Adaptee$ et réalise le bon comportement associé à ce paramètre. 
+
